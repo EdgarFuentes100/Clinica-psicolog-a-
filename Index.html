@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mente Sana | Clínica de Psicología</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #4a6fa5;
+            --secondary-color: #166088;
+            --accent-color: #7ec4cf;
+            --light-color: #f8f9fa;
+            --dark-color: #343a40;
+        }
+        
+        body {
+            font-family: 'Open Sans', sans-serif;
+            color: #333;
+            padding-top: 76px;
+        }
+        
+        h1, h2, h3, h4, h5 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+        }
+        
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.8rem;
+            color: var(--primary-color) !important;
+        }
+        
+        .hero-section {
+            background: linear-gradient(rgba(74, 111, 165, 0.85), rgba(22, 96, 136, 0.9)), url('https://images.unsplash.com/photo-1516549655669-df6654e447de?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 100px 0;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            padding: 10px 30px;
+            font-weight: 600;
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--secondary-color);
+            border-color: var(--secondary-color);
+        }
+        
+        .service-card {
+            border: none;
+            border-radius: 10px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            height: 100%;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        .service-icon {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+        
+        .team-card {
+            border: none;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+        
+        .team-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .team-img {
+            height: 250px;
+            object-fit: cover;
+        }
+        
+        .contact-info {
+            background-color: rgba(255, 255, 255, 0.95);
+            border-radius: 10px;
+            padding: 30px;
+            height: 100%;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        .contact-info h3 {
+            color: var(--secondary-color) !important;
+            font-size: 1.8rem;
+            margin-bottom: 25px;
+            text-align: center;
+            border-bottom: 3px solid var(--accent-color);
+            padding-bottom: 10px;
+        }
+        
+        .contact-info p {
+            font-size: 1.1rem;
+            margin-bottom: 18px;
+            color: #333 !important;
+            display: flex;
+            align-items: center;
+        }
+        
+        .contact-info strong {
+            color: var(--secondary-color);
+            margin-left: 5px;
+        }
+        
+        .contact-icon {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-right: 15px;
+            width: 30px;
+            text-align: center;
+        }
+        
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+        }
+        
+        .footer-links a {
+            color: #ddd;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 8px;
+        }
+        
+        .footer-links a:hover {
+            color: var(--accent-color);
+        }
+        
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 40px;
+            right: 40px;
+            background-color: #25d366;
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 3px #999;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+        }
+        
+        .whatsapp-float:hover {
+            background-color: #128C7E;
+            color: white;
+        }
+        
+        .section-title {
+            position: relative;
+            padding-bottom: 15px;
+            margin-bottom: 40px;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background-color: var(--accent-color);
+            bottom: 0;
+            left: 0;
+        }
+        
+        .section-title.text-center:after {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .testimonial-card {
+            border-left: 4px solid var(--primary-color);
+            padding-left: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .faq-item {
+            margin-bottom: 15px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 15px;
+        }
+        
+        .highlight-number {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--secondary-color) !important;
+        }
+        
+        .navbar-scrolled {
+            background-color: white !important;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        /* CORRECCIÓN: Texto oscuro para toda la tarjeta de contacto */
+        .contact-info, 
+        .contact-info h3,
+        .contact-info p,
+        .contact-info strong,
+        .contact-info span {
+            color: #333 !important;
+        }
+        
+        .phone-number {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #166088 !important;
+            background-color: #f0f8ff;
+            padding: 5px 10px;
+            border-radius: 5px;
+            display: inline-block;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand" href="#inicio">
+                <i class="bi bi-heart-pulse me-2"></i>Mente Sana
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#inicio">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#nosotros">Nosotros</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#servicios">Servicios</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#equipo">Equipo</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contacto">Contacto</a>
+                    </li>
+                    <li class="nav-item ms-lg-2">
+                        <a class="btn btn-primary" href="#contacto">Solicitar Cita</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-7">
+                    <h1 class="display-4 fw-bold mb-4">Tu bienestar mental, nuestra prioridad</h1>
+                    <p class="lead mb-4">En Clínica Mente Sana ofrecemos terapia psicológica especializada para niños, adolescentes, adultos y parejas. Nuestro equipo de profesionales está comprometido con tu salud emocional.</p>
+                    <div class="d-flex flex-wrap gap-3">
+                        <a href="#contacto" class="btn btn-primary btn-lg">Solicitar primera cita</a>
+                        <a href="#servicios" class="btn btn-outline-light btn-lg">Nuestros servicios</a>
+                    </div>
+                </div>
+                <div class="col-lg-5 mt-5 mt-lg-0">
+                    <div class="contact-info">
+                        <!-- TÍTULO VISIBLE Y CLARO -->
+                        <h3 class="mb-4 text-dark fw-bold">CONTACTO RÁPIDO</h3>
+                        
+                        <p><i class="bi bi-telephone contact-icon"></i> <strong>Teléfono:</strong><br>
+                           <span class="phone-number">(555) 123-4567</span></p>
+                        
+                        <p><i class="bi bi-envelope contact-icon"></i> <strong>Email:</strong><br>
+                           <span class="highlight-number">contacto@clinicamentesana.com</span></p>
+                        
+                        <p><i class="bi bi-clock contact-icon"></i> <strong>Horario:</strong><br>
+                           Lunes a Viernes: 9:00-20:00<br>
+                           Sábados: 10:00-14:00</p>
+                        
+                        <p><i class="bi bi-geo-alt contact-icon"></i> <strong>Dirección:</strong><br>
+                           Av. Psicología #123, Col. Centro<br>
+                           Ciudad, CP 12345</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Nosotros Section -->
+    <section id="nosotros" class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <h2 class="section-title">Sobre Nosotros</h2>
+                    <p class="lead">En <strong>Clínica Mente Sana</strong> creemos que la salud mental es fundamental para una vida plena y satisfactoria.</p>
+                    <p>Nuestro equipo de psicólogos está altamente capacitado en diversas áreas de la psicología clínica. Trabajamos con un enfoque humanista, utilizando técnicas basadas en evidencia científica adaptadas a las necesidades individuales de cada paciente.</p>
+                    <p>Nuestro espacio está diseñado para brindar comodidad, confidencialidad y un ambiente de confianza donde puedas expresarte libremente y trabajar en tu bienestar emocional.</p>
+                    <div class="row mt-4">
+                        <div class="col-md-6">
+                            <ul class="list-unstyled">
+                                <li><i class="bi bi-check-circle-fill text-primary me-2"></i> Terapia individual</li>
+                                <li><i class="bi bi-check-circle-fill text-primary me-2"></i> Terapia de pareja</li>
+                                <li><i class="bi bi-check-circle-fill text-primary me-2"></i> Terapia familiar</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <ul class="list-unstyled">
+                                <li><i class="bi bi-check-circle-fill text-primary me-2"></i> Psicología infantil</li>
+                                <li><i class="bi bi-check-circle-fill text-primary me-2"></i> Talleres grupales</li>
+                                <li><i class="bi bi-check-circle-fill text-primary me-2"></i> Evaluaciones psicológicas</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 mt-5 mt-lg-0">
+                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" class="img-fluid rounded shadow" alt="Psicóloga en consulta">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Servicios Section -->
+    <section id="servicios" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="section-title text-center">Nuestros Servicios</h2>
+            <p class="text-center lead mb-5">Ofrecemos una amplia gama de servicios psicológicos para todas las etapas de la vida</p>
+            
+            <div class="row g-4">
+                <!-- Servicio 1 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card service-card h-100 p-4">
+                        <div class="text-center">
+                            <i class="bi bi-person-circle service-icon"></i>
+                        </div>
+                        <h4 class="text-center mb-3">Terapia Individual</h4>
+                        <p class="text-center">Atención personalizada para adultos que buscan manejar ansiedad, depresión, estrés, duelos o desarrollar herramientas para el crecimiento personal.</p>
+                        <div class="mt-3">
+                            <span class="badge bg-primary">Adultos</span>
+                            <span class="badge bg-secondary">Ansiedad</span>
+                            <span class="badge bg-secondary">Depresión</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Servicio 2 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card service-card h-100 p-4">
+                        <div class="text-center">
+                            <i class="bi bi-people service-icon"></i>
+                        </div>
+                        <h4 class="text-center mb-3">Terapia de Pareja</h4>
+                        <p class="text-center">Espacio para parejas que buscan mejorar su comunicación, resolver conflictos y fortalecer su relación a través de herramientas terapéuticas.</p>
+                        <div class="mt-3">
+                            <span class="badge bg-primary">Parejas</span>
+                            <span class="badge bg-secondary">Comunicación</span>
+                            <span class="badge bg-secondary">Conflicto</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Servicio 3 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card service-card h-100 p-4">
+                        <div class="text-center">
+                            <i class="bi bi-emoji-smile service-icon"></i>
+                        </div>
+                        <h4 class="text-center mb-3">Psicología Infantil</h4>
+                        <p class="text-center">Atención especializada para niños y adolescentes con enfoque en desarrollo emocional, problemas de conducta, ansiedad escolar y más.</p>
+                        <div class="mt-3">
+                            <span class="badge bg-primary">Niños</span>
+                            <span class="badge bg-secondary">Adolescentes</span>
+                            <span class="badge bg-secondary">Escuela</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Servicio 4 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card service-card h-100 p-4">
+                        <div class="text-center">
+                            <i class="bi bi-clipboard-data service-icon"></i>
+                        </div>
+                        <h4 class="text-center mb-3">Evaluaciones Psicológicas</h4>
+                        <p class="text-center">Evaluaciones diagnósticas, pruebas de inteligencia, evaluación de personalidad y orientación vocacional para todas las edades.</p>
+                        <div class="mt-3">
+                            <span class="badge bg-primary">Diagnóstico</span>
+                            <span class="badge bg-secondary">Orientación</span>
+                            <span class="badge bg-secondary">Evaluación</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Servicio 5 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card service-card h-100 p-4">
+                        <div class="text-center">
+                            <i class="bi bi-person-lines-fill service-icon"></i>
+                        </div>
+                        <h4 class="text-center mb-3">Terapia Familiar</h4>
+                        <p class="text-center">Intervención dirigida a mejorar la dinámica familiar, comunicación entre miembros y resolver conflictos dentro del sistema familiar.</p>
+                        <div class="mt-3">
+                            <span class="badge bg-primary">Familia</span>
+                            <span class="badge bg-secondary">Dinámica</span>
+                            <span class="badge bg-secondary">Sistema</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Servicio 6 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card service-card h-100 p-4">
+                        <div class="text-center">
+                            <i class="bi bi-chat-dots service-icon"></i>
+                        </div>
+                        <h4 class="text-center mb-3">Terapia Online</h4>
+                        <p class="text-center">Sesiones de terapia psicológica a distancia mediante videollamada para quienes prefieren o necesitan atención remota.</p>
+                        <div class="mt-3">
+                            <span class="badge bg-primary">Online</span>
+                            <span class="badge bg-secondary">Remoto</span>
+                            <span class="badge bg-secondary">Videollamada</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Equipo Section -->
+    <section id="equipo" class="py-5">
+        <div class="container">
+            <h2 class="section-title text-center">Nuestro Equipo</h2>
+            <p class="text-center lead mb-5">Profesionales calificados comprometidos con tu bienestar emocional</p>
+            
+            <div class="row g-4">
+                <!-- Miembro 1 -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="card team-card">
+                        <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" class="card-img-top team-img" alt="Dra. Ana Martínez">
+                        <div class="card-body">
+                            <h5 class="card-title">Dra. Ana Martínez</h5>
+                            <p class="card-text">Psicóloga clínica especializada en terapia cognitivo-conductual. 15 años de experiencia.</p>
+                            <p class="text-muted"><small>Especialidad: Ansiedad y depresión</small></p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Miembro 2 -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="card team-card">
+                        <img src="https://images.unsplash.com/photo-1594824434340-7e7dfc37cabb?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" class="card-img-top team-img" alt="Dr. Carlos López">
+                        <div class="card-body">
+                            <h5 class="card-title">Dr. Carlos López</h5>
+                            <p class="card-text">Psicólogo infantil y adolescente. Especialista en problemas de conducta y desarrollo.</p>
+                            <p class="text-muted"><small>Especialidad: Psicología infantil</small></p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Miembro 3 -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="card team-card">
+                        <img src="https://images.unsplash.com/photo-1618498082410-4e0b6f6f5c3c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" class="card-img-top team-img" alt="Dra. Sofía Ramírez">
+                        <div class="card-body">
+                            <h5 class="card-title">Dra. Sofía Ramírez</h5>
+                            <p class="card-text">Terapeuta familiar y de pareja. Enfoque sistémico con 10 años de experiencia.</p>
+                            <p class="text-muted"><small>Especialidad: Terapia familiar</small></p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Miembro 4 -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="card team-card">
+                        <img src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" class="card-img-top team-img" alt="Lic. Javier Torres">
+                        <div class="card-body">
+                            <h5 class="card-title">Lic. Javier Torres</h5>
+                            <p class="card-text">Especialista en terapia online y nuevas tecnologías aplicadas a la psicología.</p>
+                            <p class="text-muted"><small>Especialidad: Terapia online</small></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <h2 class="section-title text-center">Preguntas Frecuentes</h2>
+            
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="faq-item">
+                        <h5>¿Cómo sé si necesito terapia psicológica?</h5>
+                        <p>Si experimentas dificultades emocionales que afectan tu vida diaria, relaciones o bienestar general, la terapia puede ayudarte. Muchas personas buscan terapia para manejar estrés, ansiedad, depresión, problemas de relación o simplemente para crecimiento personal.</p>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <h5>¿Cuánto dura una sesión de terapia?</h5>
+                        <p>Las sesiones generalmente duran entre 50 y 60 minutos. La frecuencia (semanal, quincenal) se acuerda entre el terapeuta y el paciente según las necesidades individuales.</p>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <h5>¿La terapia es confidencial?</h5>
+                        <p>Sí, la confidencialidad es un principio fundamental de la psicología. Todo lo discutido en terapia permanece estrictamente entre el paciente y el terapeuta, con excepciones muy específicas según la ley.</p>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <h5>¿Aceptan seguros médicos?</h5>
+                        <p>Trabajamos con algunos seguros médicos. Te recomendamos contactarnos al <strong class="phone-number">(555) 123-4567</strong> para verificar la cobertura de tu póliza específica. También ofrecemos planes de pago flexibles.</p>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <h5>¿Ofrecen terapia online?</h5>
+                        <p>Sí, ofrecemos sesiones de terapia online mediante videollamada segura para quienes prefieren o necesitan este formato. Es igualmente efectiva que la terapia presencial.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonios -->
+    <section class="py-5">
+        <div class="container">
+            <h2 class="section-title text-center">Testimonios</h2>
+            
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="testimonial-card">
+                        <p>"La terapia en Mente Sana cambió mi vida. Después de años lidiando con ansiedad, finalmente encontré herramientas que realmente funcionan."</p>
+                        <p class="fw-bold">María G., 34 años</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="testimonial-card">
+                        <p>"Llevamos a nuestro hijo de 10 años y el cambio ha sido increíble. Los terapeutas infantiles son excelentes y saben cómo conectar con los niños."</p>
+                        <p class="fw-bold">Familia Rodríguez</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="testimonial-card">
+                        <p>"La terapia de pareja nos ayudó a comunicarnos mejor y resolver conflictos que llevábamos años arrastrando. Muy recomendable."</p>
+                        <p class="fw-bold">Laura y Miguel</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contacto Section -->
+    <section id="contacto" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="section-title text-center">Solicita tu Cita</h2>
+            <p class="text-center lead mb-5">Estamos aquí para ayudarte. Contáctanos para programar tu primera consulta</p>
+            
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="card shadow border-0">
+                        <div class="card-body p-5">
+                            <form id="contactForm">
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <label for="nombre" class="form-label">Nombre completo *</label>
+                                        <input type="text" class="form-control" id="nombre" required>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="email" class="form-label">Correo electrónico *</label>
+                                        <input type="email" class="form-control" id="email" required>
+                                    </div>
+                                </div>
+                                
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <label for="telefono" class="form-label">Teléfono *</label>
+                                        <input type="tel" class="form-control" id="telefono" required placeholder="(555) 123-4567">
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="servicio" class="form-label">Servicio de interés</label>
+                                        <select class="form-select" id="servicio">
+                                            <option selected>Seleccionar...</option>
+                                            <option value="individual">Terapia Individual</option>
+                                            <option value="pareja">Terapia de Pareja</option>
+                                            <option value="infantil">Psicología Infantil</option>
+                                            <option value="familiar">Terapia Familiar</option>
+                                            <option value="evaluacion">Evaluación Psicológica</option>
+                                            <option value="online">Terapia Online</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                
+                                <div class="mb-3">
+                                    <label for="mensaje" class="form-label">Mensaje</label>
+                                    <textarea class="form-control" id="mensaje" rows="4" placeholder="Describe brevemente lo que te gustaría trabajar en terapia..."></textarea>
+                                </div>
+                                
+                                <div class="mb-3 form-check">
+                                    <input type="checkbox" class="form-check-input" id="privacidad" required>
+                                    <label class="form-check-label" for="privacidad">Acepto la política de privacidad y el tratamiento de mis datos *</label>
+                                </div>
+                                
+                                <div class="text-center">
+                                    <button type="submit" class="btn btn-primary btn-lg px-5">Enviar solicitud</button>
+                                </div>
+                                <p class="text-muted text-center mt-3"><small>* Te contactaremos en un máximo de 24 horas hábiles al <strong class="phone-number">(555) 123-4567</strong></small></p>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <h4 class="mb-4"><i class="bi bi-heart-pulse me-2"></i>Mente Sana</h4>
+                    <p>Clínica de psicología especializada en ofrecer atención emocional de calidad para individuos, parejas y familias.</p>
+                    <div class="d-flex mt-4">
+                        <a href="#" class="text-white me-3"><i class="bi bi-facebook fs-5"></i></a>
+                        <a href="#" class="text-white me-3"><i class="bi bi-instagram fs-5"></i></a>
+                        <a href="#" class="text-white me-3"><i class="bi bi-twitter fs-5"></i></a>
+                        <a href="#" class="text-white"><i class="bi bi-linkedin fs-5"></i></a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
+                    <h5 class="mb-4">Enlaces</h5>
+                    <div class="footer-links">
+                        <a href="#inicio">Inicio</a>
+                        <a href="#nosotros">Nosotros</a>
+                        <a href="#servicios">Servicios</a>
+                        <a href="#equipo">Equipo</a>
+                        <a href="#contacto">Contacto</a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+                    <h5 class="mb-4">Servicios</h5>
+                    <div class="footer-links">
+                        <a href="#servicios">Terapia Individual</a>
+                        <a href="#servicios">Terapia de Pareja</a>
+                        <a href="#servicios">Psicología Infantil</a>
+                        <a href="#servicios">Evaluaciones</a>
+                        <a href="#servicios">Terapia Online</a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-3">
+                    <h5 class="mb-4">Contacto</h5>
+                    <p><i class="bi bi-geo-alt me-2"></i> Av. Psicología #123, Col. Centro<br>Ciudad, CP 12345</p>
+                    <p><i class="bi bi-telephone me-2"></i> <strong class="phone-number">(555) 123-4567</strong></p>
+                    <p><i class="bi bi-envelope me-2"></i> <strong>contacto@clinicamentesana.com</strong></p>
+                    <p><i class="bi bi-clock me-2"></i> Lunes a Viernes: 9:00-20:00<br>Sábados: 10:00-14:00</p>
+                </div>
+            </div>
+            
+            <hr class="my-5 bg-light">
+            
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start">
+                    <p>&copy; 2023 Clínica Mente Sana. Todos los derechos reservados.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <a href="#" class="text-white me-3">Política de privacidad</a>
+                    <a href="#" class="text-white">Términos y condiciones</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Float -->
+    <a href="https://wa.me/521551234567?text=Hola,%20me%20interesa%20solicitar%20una%20cita%20en%20Clínica%20Mente%20Sana" class="whatsapp-float" target="_blank">
+        <i class="bi bi-whatsapp"></i>
+    </a>
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        // Smooth scrolling para los enlaces del navbar
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 70,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Form submission (simulado)
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('¡Gracias por tu solicitud! Te contactaremos en un máximo de 24 horas hábiles al número (555) 123-4567.');
+            this.reset();
+        });
+        
+        // Cambiar estilo del navbar al hacer scroll
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if(window.scrollY > 100) {
+                navbar.classList.add('navbar-scrolled');
+            } else {
+                navbar.classList.remove('navbar-scrolled');
+            }
+        });
+        
+        // Mostrar mensaje de confirmación al cargar
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Página cargada correctamente');
+            console.log('"CONTACTO RÁPIDO" debería ser visible ahora');
+            
+            // Verificar que el título esté visible
+            const contactTitle = document.querySelector('.contact-info h3');
+            if(contactTitle) {
+                contactTitle.style.color = '#166088';
+                contactTitle.style.fontWeight = 'bold';
+            }
+        });
+    </script>
+</body>
+</html>
